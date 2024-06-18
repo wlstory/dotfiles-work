@@ -133,6 +133,7 @@ fi
 app_store=(
     "517914548" # Dashlane
     "1462114288" # Grammarly Safari
+    "1533078079" # Teleprompter Pro+
 )
 
 # Mac App Store Installs
