@@ -47,7 +47,6 @@ packages=(
     "ruby-install"
     "chruby"
     "starship"
-    "whatsapp"
     "grammarly-desktop"
     "dockutil"
 
@@ -88,7 +87,6 @@ $(brew --prefix)/bin/npm install --global prettier
 
 # Define an array of applications to install using Homebrew Cask.
 apps=(
-    "google-chrome"
     "microsoft-edge"
     "visual-studio-code"
     "spotify"
