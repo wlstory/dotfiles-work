@@ -209,30 +209,6 @@ dockutil --move 'Microsoft Edge' --after 'Google Chrome' --no-restart
 dockutil --move 'Microsoft Teams' --after 'OneDrive' --no-restart
 dockutil --move 'Genesys Cloud' --after 'Microsoft Teams' --no-restart
 
-# Restart Dock to ensure all changes are reflected
-killall Dock
-
-# Hot Corners - https://dev.to/darrinndeal/setting-mac-hot-corners-in-the-terminal-3de
-#================================================
-# *                 HOT CORNERS
-#================================================
-# Hot corners
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-echo "♨️  Setting Hot Corners"
-defaults write com.apple.dock wvous-tl-corner -int 3 # Top Right    - Show Application Windows
-defaults write com.apple.dock wvous-tr-corner -int 2 # Top Right    - Mission Control
-defaults write com.apple.dock wvous-bl-corner -int 4 # Bottom Left  - Desktop
-defaults write com.apple.dock wvous-br-corner -int 5 # Bottom Right - Start Screen Saver
 
 # FINAL Restart Finder and Dock
 killall Finder
