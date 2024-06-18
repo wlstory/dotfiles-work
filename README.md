@@ -20,7 +20,7 @@ The setup includes automated scripts for installing essential software, configur
 
 1. Clone the repository to your local machine:
    ```sh
-   git clone https://github.com/wlstory/dotfiles.git ~/dotfiles
+   git clone https://github.com/wlstory/dotfiles-work.git ~/dotfiles
    ```
 2. Navigate to the `dotfiles` directory:
    ```sh
