@@ -49,7 +49,6 @@ packages=(
     "starship"
     "grammarly-desktop"
     "dockutil"
-
 )
 
 echo "🍺 Installing Homebrew Packages ----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
@@ -70,19 +69,29 @@ echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
 # Set the Homebrew zsh as default shell
 chsh -s "$(brew --prefix)/bin/zsh"
 
-# Git config name
-echo "Please enter your FULL NAME for Git configuration:"
-read git_user_name
+# Check if git user.name is already set
+if git config --get user.name &>/dev/null; then
+    echo "✅ Git user.name is already set."
+else
+    echo "Please set your Git user.name and user.email."
+    # Git config name
+    echo "Please enter your FULL NAME for Git configuration:"
+    read git_user_name
 
-# Git config email
-echo "Please enter your EMAIL for Git configuration:"
-read git_user_email
+    # Git config email
+    echo "Please enter your EMAIL for Git configuration:"
+    read git_user_email
 
-# Set my git credentials
-$(brew --prefix)/bin/git config --global user.name "$git_user_name"
-$(brew --prefix)/bin/git config --global user.email "$git_user_email"
+    # Set my git credentials
+    $(brew --prefix)/bin/git config --global user.name "$git_user_name"
+    $(brew --prefix)/bin/git config --global user.email "$git_user_email"
+fi
 
-# Install Prettier - used in both VS Code and Sublime Text
+
+
+
+
+# Install Prettier - used in both VS Code
 $(brew --prefix)/bin/npm install --global prettier
 
 # Define an array of applications to install using Homebrew Cask.
@@ -190,6 +199,7 @@ killall Dock
 
 # Add specified apps to the Dock
 dockutil --add /Applications/Evernote.app --no-restart
+dockutil --add /Applications/Calendar.app --no-restart
 dockutil --add '/Applications/Microsoft Edge.app' --after 'Google Chrome' --no-restart
 dockutil --add '/Applications/Microsoft Teams.app' --no-restart
 dockutil --add '/Applications/Genesys Cloud.app' --no-restart
@@ -205,10 +215,11 @@ dockutil --add '/Applications' --view grid --display folder --allhomes --no-rest
 # Re-arrange Dock
 dockutil --move 'System Settings' --position 2 --no-restart
 dockutil --move 'App Store' --position 3 --no-restart
-dockutil --move 'Calendar' --after 'Mail' --no-restart
+dockutil --move 'Calendar' --before 'Microsoft Outlook' --no-restart
 dockutil --move 'Microsoft Edge' --after 'Google Chrome' --no-restart
 dockutil --move 'Microsoft Teams' --after 'OneDrive' --no-restart
 dockutil --move 'Genesys Cloud' --after 'Microsoft Teams' --no-restart
+dockutil --move 'Genesys IT App Portal' --after 'zoom.us' --no-restart
 
 
 # FINAL Restart Finder and Dock

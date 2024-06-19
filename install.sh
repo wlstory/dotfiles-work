@@ -34,7 +34,7 @@ for file in "${files[@]}"; do
 done
 
 # Run the MacOS Script
-./macOS.sh
+sudo ./macOS.sh
 
 # Run the Homebrew Script
 ./brew.sh
