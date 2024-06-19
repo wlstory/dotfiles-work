@@ -78,4 +78,17 @@ defaults write com.apple.dock wvous-br-corner -int 5 # Bottom Right - Start Scre
 killall Dock
 killall Finder
 
+
+# Map default folders to folders on OneDrive
+
+
+# Set default location for Zoom backgrounds
+
+
+# Set default location for screenshots
+#defaults write com.apple.screencapture location /path/to/screenshots/folder
+#killall SystemUIServer
+
+
+
 #EOF
