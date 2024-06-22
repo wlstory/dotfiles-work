@@ -187,6 +187,7 @@ brew cleanup
 
 # Dock Clean-up / Set-up
 # Remove specified apps from the Dock
+echo "Performing Dock Clean-up, adds, and re-orders...Screen may flash several times."
 dockutil --remove 'Maps'
 dockutil --remove 'Notes'
 dockutil --remove 'Freeform'
@@ -225,3 +226,25 @@ dockutil --move 'Genesys IT App Portal' --after 'zoom.us' --no-restart
 # FINAL Restart Finder and Dock
 killall Finder
 killall Dock
+
+# Copy Elgato Stream Deck plugins and run restore in Elgato Stream Deck
+echo "Copy Elgato Stream Deck plugins"
+cp -R ~/Library/Mobile\ Documents/com~apple~CloudDocs/dotfiles-work/settings/elgato/plugins/* ~/Library/Application\ Support/com.elgato.StreamDeck/Plugins
+# Copy Elgato Stream Deck backup files
+echo "Restoring Elgato Stream Deck backups..."
+cp ~/Library/Mobile\ Documents/com~apple~CloudDocs/dotfiles-work/settings/elgato/backups/* ~/Library/Application\ Support/com.elgato.StreamDeck/Backup
+# Restoring from backup manually works better than copying the Profiles via commands below
+#echo "Restoring Elgato Stream Deck profiles..."
+#cp -R ~/Library/Mobile\ Documents/com~apple~CloudDocs/dotfiles-work/settings/elgato/ProfilesV2/* ~/Library/Application\ Support/com.elgato.StreamDeck/ProfilesV2
+echo " ✅ Elgato Stream Deck plugins and backups restored."
+echo "Remember to Restore and Import your profiles in Elgato Stream Deck."
+read -p "Press enter to continue..."
+
+# Set Teams default background
+#echo "Setting Teams default background..."
+#defaults write com.microsoft.teams NSUserPersistentBackgroundPictureKey -string "/path/to/your/background/image.jpg"
+
+# Set Zoom default background
+#echo "Setting Zoom default background..."
+#defaults write us.zoom.xos NSUserPersistentBackgroundPictureKey -string "/path/to/your/background/image.jpg"
+
